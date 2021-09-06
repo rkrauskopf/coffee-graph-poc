@@ -10,7 +10,7 @@ startMock();
 
 function startMock() {
   ws.on("open", async () => {
-    while (seconds < 120) {
+    while (true) {
       ws.send(
         JSON.stringify({
           time: seconds,
