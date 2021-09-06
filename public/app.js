@@ -48,8 +48,6 @@ connectBtn.onclick = () => {
   localStorage.setItem("userName", userName);
   // Connection opened
   socket.addEventListener("open", function (event) {
-    socket.send("Hello world!");
-
     connectionStatus.innerText = "Connected!";
   });
 
