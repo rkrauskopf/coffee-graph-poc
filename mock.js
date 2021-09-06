@@ -1,6 +1,6 @@
 const WebSocket = require("ws");
 
-const ws = new WebSocket("ws://localhost:8080/backend?userName=kevin");
+const ws = new WebSocket("ws://localhost:3000/backend?userName=kevin");
 
 let seconds = 0;
 

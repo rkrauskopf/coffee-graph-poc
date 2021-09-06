@@ -3,7 +3,13 @@ const { WebSocketServer } = require("ws");
 const { parse } = require("url");
 const { createServer } = require("http");
 
-const server = createServer();
+// Express setup
+const app = express();
+const port = process.env.PORT || 3000;
+
+app.use("/web", express.static("public"));
+
+const server = createServer(app);
 const wssBrowser = new WebSocketServer({ noServer: true });
 const wssBackEnd = new WebSocketServer({ noServer: true });
 
@@ -54,10 +60,6 @@ server.on("upgrade", function upgrade(request, socket, head) {
   }
 });
 
-const app = express();
-const port = 3000;
-
-app.use(express.static("public"));
-
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
-server.listen(8080);
+server.listen(port, () =>
+  console.log(`Example app listening on port ${port}!`)
+);
