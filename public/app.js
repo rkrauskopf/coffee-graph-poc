@@ -42,7 +42,7 @@ const myChart = new Chart(document.getElementById("my-chart"), chartConfig);
 connectBtn.onclick = () => {
   const userName = userInput.value;
   const socket = new WebSocket(
-    `ws://localhost:3000/browser?userName=${userName}`
+    `ws://coffee-roasting.herokuapp.com/browser?userName=${userName}`
   );
 
   localStorage.setItem("userName", userName);
