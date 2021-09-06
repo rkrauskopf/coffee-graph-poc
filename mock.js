@@ -1,6 +1,8 @@
 const WebSocket = require("ws");
 
-const ws = new WebSocket("ws://localhost:3000/backend?userName=kevin");
+const ws = new WebSocket(
+  "wss://coffee-roasting.herokuapp.com/backend?userName=beans"
+);
 
 let seconds = 0;
 
