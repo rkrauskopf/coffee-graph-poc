@@ -7,6 +7,9 @@
 const dataArray = [];
 
 const userInput = document.getElementById("user-name");
+const userName = localStorage.getItem("userName");
+userInput.value = userName;
+
 const connectBtn = document.getElementById("connect");
 const connectionStatus = document.getElementById("connection-status");
 
@@ -25,7 +28,13 @@ const chartConfig = {
       },
     ],
   },
-  options: {},
+  options: {
+    scales: {
+      x: {
+        display: true,
+      },
+    },
+  },
 };
 
 const myChart = new Chart(document.getElementById("my-chart"), chartConfig);
@@ -35,6 +44,8 @@ connectBtn.onclick = () => {
   const socket = new WebSocket(
     `ws://localhost:8080/browser?userName=${userName}`
   );
+
+  localStorage.setItem("userName", userName);
   // Connection opened
   socket.addEventListener("open", function (event) {
     socket.send("Hello world!");
